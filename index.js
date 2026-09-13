@@ -13,6 +13,21 @@ app.get('/timestamp', (req, res) => {
     });
 })
 
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'ok'
+    });
+})
+
+app.get('/stats', (req, res) => {
+    res.json({
+        uptime: process.uptime(),          
+        nodeVersion: process.version,      
+        timestamp: new Date()
+    });
+})
+
+
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`)
 })
